@@ -104,6 +104,44 @@ const RO_NAV = {
   ],
 };
 
+const STATE_NODAL_NAV = {
+  workspace: [
+    { to: "/app/state-nodal/overview", label: "State Overview", icon: LayoutDashboard },
+    { to: "/app/state-nodal/work-queue", label: "My Work Queue", icon: ClipboardCheck },
+    { to: "/app/state-nodal/projects", label: "State Projects", icon: Files },
+  ],
+  coordination: [
+    { to: "/app/state-nodal/incoming", label: "Incoming Projects", icon: Shield },
+    { to: "/app/state-nodal/routing", label: "District Routing", icon: GitBranch },
+    { to: "/app/state-nodal/districts", label: "Districts", icon: Building2 },
+    { to: "/app/state-nodal/departments", label: "State Departments", icon: Building2 },
+    { to: "/app/state-nodal/stakeholders", label: "Stakeholders", icon: Users },
+    { to: "/app/state-nodal/requests", label: "Requests & Clarifications", icon: ScrollText },
+  ],
+  monitoring: [
+    { to: "/app/state-nodal/pipeline", label: "Acquisition Pipeline", icon: BarChart3 },
+    { to: "/app/state-nodal/timeline", label: "Statutory Timeline", icon: Activity },
+    { to: "/app/state-nodal/gis", label: "State GIS", icon: MapIcon },
+    { to: "/app/state-nodal/risk", label: "Risk & Delays", icon: AlertTriangle },
+  ],
+  acquisition: [
+    { to: "/app/state-nodal/sia", label: "SIA Monitoring", icon: Users },
+    { to: "/app/state-nodal/notifications-monitor", label: "Notifications", icon: Bell },
+    { to: "/app/state-nodal/objections", label: "Objections", icon: MessageSquareWarning },
+    { to: "/app/state-nodal/compensation", label: "Compensation", icon: IndianRupee },
+    { to: "/app/state-nodal/possession", label: "Possession", icon: MapIcon },
+    { to: "/app/state-nodal/rnr", label: "R&R", icon: Users },
+  ],
+  records: [
+    { to: "/app/state-nodal/documents", label: "Documents", icon: FileText },
+    { to: "/app/state-nodal/audit", label: "Audit Trail", icon: ScrollText },
+  ],
+  reports: [
+    { to: "/app/state-nodal/mis", label: "State MIS", icon: LineChart },
+    { to: "/app/state-nodal/notifications", label: "Notifications", icon: Bell },
+  ],
+};
+
 const ADMIN_NAV = {
   overview: [
     { to: "/app/admin/overview", label: "National Overview", icon: LayoutDashboard },
@@ -171,6 +209,7 @@ export function Sidebar() {
   const isAdmin = user.roleId === "national_admin";
   const isMinistry = user.roleId === "ministry_nodal";
   const isRO = user.roleId === "requiring_org";
+  const isStateNodal = user.roleId === "state_nodal";
 
   return (
     <aside className="hidden w-[260px] shrink-0 flex-col border-r bg-white lg:flex">
@@ -274,6 +313,35 @@ export function Sidebar() {
               </div>
             ))}
           </>
+        ) : isStateNodal ? (
+          <>
+            {/* State Nodal Officer navigation — grouped sections */}
+            {Object.entries(STATE_NODAL_NAV).map(([section, items]) => (
+              <div key={section}>
+                <p className="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground capitalize">
+                  {section}
+                </p>
+                <ul className="space-y-0.5">
+                  {items.map((item) => (
+                    <li key={item.to + item.label}>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors",
+                            isActive ? "bg-[#0F2340] text-white" : "text-slate-700 hover:bg-slate-100",
+                          )
+                        }
+                      >
+                        <item.icon className="h-4 w-4 shrink-0" />
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </>
         ) : (
           <>
             {/* Standard navigation for other roles */}
@@ -334,7 +402,9 @@ export function Sidebar() {
                 ? "7 projects delayed · 6 risk items. Monitor Risk & Delay page."
                 : isRO
                   ? "3 projects at risk · 7 work items. Review Work Queue → respond to requests."
-                  : "2 cases overdue · 3 due this week. Review Cases → filter by SLA."}
+                  : isStateNodal
+                    ? "5 projects delayed · 3 critical. Review Risk & Delay → route incoming projects."
+                    : "2 cases overdue · 3 due this week. Review Cases → filter by SLA."}
           </p>
           <Badge variant="warning" className="mt-2 text-[11px]">
             Action needed

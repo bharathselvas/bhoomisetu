@@ -49,6 +49,11 @@ export function OverviewPage() {
     return <Navigate to="/app/ro/dashboard" replace />;
   }
 
+  // State Nodal Officer gets a dedicated overview page
+  if (user.roleId === "state_nodal") {
+    return <Navigate to="/app/state-nodal/overview" replace />;
+  }
+
   const role = ROLE_BY_ID[user.roleId];
 
   const activeCases = cases.filter((c) => c.status === "active");
@@ -92,7 +97,7 @@ export function OverviewPage() {
       {user.roleId === "rnr_officer" && <RnrKPIs />}
       {user.roleId === "tehsil_sdo" && <TehsilKpi cases={cases} overdue={overdue} />}
       {((user.roleId as string) === "requiring_org") && <RequiringOrgKPIs />}
-      {user.roleId === "state_nodal" && <StateNodalKPIs cases={cases} overdue={overdue} />}
+      {((user.roleId as string) === "state_nodal") && <StateNodalKPIs cases={cases} overdue={overdue} />}
 
       <div className="grid gap-4 lg:grid-cols-3">
         {/* Golden Path tracker */}

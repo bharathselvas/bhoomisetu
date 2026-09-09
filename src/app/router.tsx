@@ -59,6 +59,32 @@ import { CompensationMonitorPage } from "@/features/requiring-org/CompensationMo
 import { PossessionMonitorPage } from "@/features/requiring-org/PossessionMonitorPage";
 import { RnrMonitorPage } from "@/features/requiring-org/RnrMonitorPage";
 import { ProjectReportsPage } from "@/features/requiring-org/ProjectReportsPage";
+import { StateOverviewPage } from "@/features/state-nodal/StateOverviewPage";
+import { StatePipelinePage } from "@/features/state-nodal/StatePipelinePage";
+import { IncomingProjectsPage } from "@/features/state-nodal/IncomingProjectsPage";
+import { StateProjectReviewPage } from "@/features/state-nodal/StateProjectReviewPage";
+import { DistrictRoutingPage } from "@/features/state-nodal/DistrictRoutingPage";
+import { DistrictMonitoringPage } from "@/features/state-nodal/DistrictMonitoringPage";
+import { DistrictDetailPage } from "@/features/state-nodal/DistrictDetailPage";
+import { StateGisPage } from "@/features/state-nodal/StateGisPage";
+import { StateProjectsPage } from "@/features/state-nodal/StateProjectsPage";
+import { StatutoryTimelinePage } from "@/features/state-nodal/StatutoryTimelinePage";
+import { SiaMonitoringPage } from "@/features/state-nodal/SiaMonitoringPage";
+import { NotificationMonitoringPage } from "@/features/state-nodal/NotificationMonitoringPage";
+import { ObjectionsMonitoringPage } from "@/features/state-nodal/ObjectionsMonitoringPage";
+import { RequestsClarificationsPage } from "@/features/state-nodal/RequestsClarificationsPage";
+import { StateDepartmentsPage } from "@/features/state-nodal/StateDepartmentsPage";
+import { StateStakeholdersPage } from "@/features/state-nodal/StateStakeholdersPage";
+import { StateCompensationPage } from "@/features/state-nodal/StateCompensationPage";
+import { StatePossessionPage } from "@/features/state-nodal/StatePossessionPage";
+import { StateRnrPage } from "@/features/state-nodal/StateRnrPage";
+import { StateRiskDelayPage } from "@/features/state-nodal/StateRiskDelayPage";
+import { StateDocumentsPage } from "@/features/state-nodal/StateDocumentsPage";
+import { StateAuditPage } from "@/features/state-nodal/StateAuditPage";
+import { StateMisPage } from "@/features/state-nodal/StateMisPage";
+import { StateNotificationsPage } from "@/features/state-nodal/StateNotificationsPage";
+import { StateWorkQueuePage } from "@/features/state-nodal/StateWorkQueuePage";
+import { StateProjectWorkspacePage } from "@/features/state-nodal/StateProjectWorkspacePage";
 
 /**
  * App router — single national platform.
@@ -136,6 +162,33 @@ export const router = createBrowserRouter([
       { path: "ro/possession", element: <PossessionMonitorPage /> },
       { path: "ro/rnr", element: <RnrMonitorPage /> },
       { path: "ro/reports", element: <ProjectReportsPage /> },
+      // State Nodal Officer routes
+      { path: "state-nodal/overview", element: <StateOverviewPage /> },
+      { path: "state-nodal/pipeline", element: <StatePipelinePage /> },
+      { path: "state-nodal/incoming", element: <IncomingProjectsPage /> },
+      { path: "state-nodal/project-review/:projectId", element: <StateProjectReviewPage /> },
+      { path: "state-nodal/routing", element: <DistrictRoutingPage /> },
+      { path: "state-nodal/districts", element: <DistrictMonitoringPage /> },
+      { path: "state-nodal/districts/:districtId", element: <DistrictDetailPage /> },
+      { path: "state-nodal/gis", element: <StateGisPage /> },
+      { path: "state-nodal/projects", element: <StateProjectsPage /> },
+      { path: "state-nodal/project/:projectId", element: <StateProjectWorkspacePage /> },
+      { path: "state-nodal/timeline", element: <StatutoryTimelinePage /> },
+      { path: "state-nodal/sia", element: <SiaMonitoringPage /> },
+      { path: "state-nodal/notifications-monitor", element: <NotificationMonitoringPage /> },
+      { path: "state-nodal/objections", element: <ObjectionsMonitoringPage /> },
+      { path: "state-nodal/requests", element: <RequestsClarificationsPage /> },
+      { path: "state-nodal/departments", element: <StateDepartmentsPage /> },
+      { path: "state-nodal/stakeholders", element: <StateStakeholdersPage /> },
+      { path: "state-nodal/compensation", element: <StateCompensationPage /> },
+      { path: "state-nodal/possession", element: <StatePossessionPage /> },
+      { path: "state-nodal/rnr", element: <StateRnrPage /> },
+      { path: "state-nodal/risk", element: <StateRiskDelayPage /> },
+      { path: "state-nodal/documents", element: <StateDocumentsPage /> },
+      { path: "state-nodal/audit", element: <StateAuditPage /> },
+      { path: "state-nodal/mis", element: <StateMisPage /> },
+      { path: "state-nodal/notifications", element: <StateNotificationsPage /> },
+      { path: "state-nodal/work-queue", element: <StateWorkQueuePage /> },
     ],
   },
   { path: "*", element: <Navigate to="/" replace /> },
