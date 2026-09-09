@@ -43,6 +43,22 @@ import { MinistryAuditPage } from "@/features/ministry/MinistryAuditPage";
 import { MinistryMisPage } from "@/features/ministry/MinistryMisPage";
 import { MinistryNotificationsPage } from "@/features/ministry/MinistryNotificationsPage";
 import { MinistryProfilePage } from "@/features/ministry/MinistryProfilePage";
+import { ProjectDashboardPage } from "@/features/requiring-org/ProjectDashboardPage";
+import { MyProjectsPage } from "@/features/requiring-org/MyProjectsPage";
+import { CreateProjectPage } from "@/features/requiring-org/CreateProjectPage";
+import { ProjectWorkspacePage } from "@/features/requiring-org/ProjectWorkspacePage";
+import { WorkQueuePage } from "@/features/requiring-org/WorkQueuePage";
+import { AcquisitionProgressPage } from "@/features/requiring-org/AcquisitionProgressPage";
+import { RiskDelayPage } from "@/features/requiring-org/RiskDelayPage";
+import { ProjectGisPage } from "@/features/requiring-org/ProjectGisPage";
+import { AuthorityRequestsPage } from "@/features/requiring-org/AuthorityRequestsPage";
+import { ObjectionsGrievancesPage } from "@/features/requiring-org/ObjectionsGrievancesPage";
+import { ProjectDocumentsPage } from "@/features/requiring-org/ProjectDocumentsPage";
+import { AuditTrailPage as RoAuditTrailPage } from "@/features/requiring-org/AuditTrailPage";
+import { CompensationMonitorPage } from "@/features/requiring-org/CompensationMonitorPage";
+import { PossessionMonitorPage } from "@/features/requiring-org/PossessionMonitorPage";
+import { RnrMonitorPage } from "@/features/requiring-org/RnrMonitorPage";
+import { ProjectReportsPage } from "@/features/requiring-org/ProjectReportsPage";
 
 /**
  * App router — single national platform.
@@ -103,6 +119,23 @@ export const router = createBrowserRouter([
       { path: "ministry/reports", element: <MinistryMisPage /> },
       { path: "ministry/notifications", element: <MinistryNotificationsPage /> },
       { path: "ministry/profile", element: <MinistryProfilePage /> },
+      // Requiring Organisation / Implementing Agency routes
+      { path: "ro/dashboard", element: <ProjectDashboardPage /> },
+      { path: "ro/projects", element: <MyProjectsPage /> },
+      { path: "ro/create", element: <CreateProjectPage /> },
+      { path: "ro/project/:projectId", element: <ProjectWorkspacePage /> },
+      { path: "ro/work-queue", element: <WorkQueuePage /> },
+      { path: "ro/progress", element: <AcquisitionProgressPage /> },
+      { path: "ro/gis", element: <ProjectGisPage /> },
+      { path: "ro/risk", element: <RiskDelayPage /> },
+      { path: "ro/requests", element: <AuthorityRequestsPage /> },
+      { path: "ro/objections", element: <ObjectionsGrievancesPage /> },
+      { path: "ro/documents", element: <ProjectDocumentsPage /> },
+      { path: "ro/audit", element: <RoAuditTrailPage /> },
+      { path: "ro/compensation", element: <CompensationMonitorPage /> },
+      { path: "ro/possession", element: <PossessionMonitorPage /> },
+      { path: "ro/rnr", element: <RnrMonitorPage /> },
+      { path: "ro/reports", element: <ProjectReportsPage /> },
     ],
   },
   { path: "*", element: <Navigate to="/" replace /> },

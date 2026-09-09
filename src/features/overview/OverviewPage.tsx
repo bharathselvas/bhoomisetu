@@ -44,6 +44,11 @@ export function OverviewPage() {
     return <Navigate to="/app/ministry/overview" replace />;
   }
 
+  // Requiring Organisation / Implementing Agency gets a dedicated overview page
+  if (user.roleId === "requiring_org") {
+    return <Navigate to="/app/ro/dashboard" replace />;
+  }
+
   const role = ROLE_BY_ID[user.roleId];
 
   const activeCases = cases.filter((c) => c.status === "active");
@@ -86,7 +91,7 @@ export function OverviewPage() {
       {user.roleId === "sia_expert" && <SiaKPIs />}
       {user.roleId === "rnr_officer" && <RnrKPIs />}
       {user.roleId === "tehsil_sdo" && <TehsilKpi cases={cases} overdue={overdue} />}
-      {user.roleId === "requiring_org" && <RequiringOrgKPIs />}
+      {((user.roleId as string) === "requiring_org") && <RequiringOrgKPIs />}
       {user.roleId === "state_nodal" && <StateNodalKPIs cases={cases} overdue={overdue} />}
 
       <div className="grid gap-4 lg:grid-cols-3">
