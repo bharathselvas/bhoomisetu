@@ -22,8 +22,13 @@ import {
   FileText,
   Activity,
   Wifi,
+  WifiOff,
   Settings,
   LineChart,
+  CheckCircle2,
+  RefreshCw,
+  Lock,
+  Send,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSessionStore } from "@/stores/sessionStore";
@@ -222,6 +227,78 @@ const TEHSIL_NAV = {
   ],
 };
 
+const FIELD_OFFICER_NAV = {
+  home: [
+    { to: "/app/fo/home", label: "Field Home", icon: LayoutDashboard },
+    { to: "/app/fo/tasks", label: "My Tasks", icon: ClipboardCheck },
+    { to: "/app/fo/map", label: "Field Map", icon: MapIcon },
+  ],
+  evidence: [
+    { to: "/app/fo/gallery", label: "Photo Evidence", icon: MapIcon },
+    { to: "/app/fo/documents", label: "Documents", icon: FileText },
+    { to: "/app/fo/observations", label: "Observations", icon: ScrollText },
+  ],
+  verification: [
+    { to: "/app/fo/owner-verify", label: "Owner Verification", icon: Users },
+    { to: "/app/fo/assets", label: "Asset Verification", icon: Home },
+    { to: "/app/fo/measurement", label: "Measurement", icon: MapIcon },
+  ],
+  operations: [
+    { to: "/app/fo/interaction", label: "Landowner Interaction", icon: Users },
+    { to: "/app/fo/objection-evidence", label: "Objection Evidence", icon: MessageSquareWarning },
+    { to: "/app/fo/possession", label: "Possession Visit", icon: MapIcon },
+    { to: "/app/fo/rnr", label: "R&R Field Data", icon: Users },
+  ],
+  records: [
+    { to: "/app/fo/completed", label: "Completed Work", icon: CheckCircle2 },
+    { to: "/app/fo/performance", label: "Performance", icon: BarChart3 },
+    { to: "/app/fo/sync", label: "Sync Centre", icon: RefreshCw },
+    { to: "/app/fo/audit", label: "Audit Trail", icon: ScrollText },
+    { to: "/app/fo/notifications", label: "Notifications", icon: Bell },
+    { to: "/app/fo/role", label: "My Role", icon: Shield },
+    { to: "/app/fo/offline", label: "Offline Mode", icon: WifiOff },
+  ],
+};
+
+const SIA_NAV = {
+  workspace: [
+    { to: "/app/sia/dashboard", label: "SIA Dashboard", icon: LayoutDashboard },
+    { to: "/app/sia/assessments", label: "My Assessments", icon: Files },
+    { to: "/app/sia/work-queue", label: "Work Queue", icon: ClipboardCheck },
+  ],
+  assessment: [
+    { to: "/app/sia/workspace/SIA-2026-0042", label: "Assigned Project", icon: Users2 },
+    { to: "/app/sia/families", label: "Affected Families", icon: Users },
+    { to: "/app/sia/livelihood", label: "Livelihood & Displacement", icon: Home },
+    { to: "/app/sia/public-assets", label: "Public Assets", icon: Building2 },
+    { to: "/app/sia/vulnerable", label: "Vulnerable Groups", icon: AlertTriangle },
+  ],
+  consultation: [
+    { to: "/app/sia/gram-sabha", label: "Gram Sabha", icon: Users2 },
+    { to: "/app/sia/public-consultation", label: "Public Consultations", icon: Users2 },
+    { to: "/app/sia/stakeholder", label: "Stakeholder Consultations", icon: Users },
+  ],
+  evidence: [
+    { to: "/app/sia/evidence", label: "Evidence Centre", icon: FolderArchive },
+    { to: "/app/sia/gis-map", label: "GIS / Map", icon: MapIcon },
+  ],
+  reports: [
+    { to: "/app/sia/findings", label: "SIA Findings", icon: ScrollText },
+    { to: "/app/sia/mitigation", label: "Mitigation", icon: Shield },
+    { to: "/app/sia/completeness", label: "Completeness Check", icon: CheckCircle2 },
+    { to: "/app/sia/draft-report", label: "SIA Draft Report", icon: FileText },
+    { to: "/app/sia/submission", label: "Submit SIA", icon: Send },
+    { to: "/app/sia/clarifications", label: "Clarifications", icon: MessageSquareWarning },
+  ],
+  records: [
+    { to: "/app/sia/version-history", label: "Version History", icon: ScrollText },
+    { to: "/app/sia/audit", label: "Audit Trail", icon: ScrollText },
+    { to: "/app/sia/statutory-gate", label: "Statutory Gate", icon: Lock },
+    { to: "/app/sia/notifications", label: "Notifications", icon: Bell },
+    { to: "/app/sia/role", label: "My Role", icon: Shield },
+  ],
+};
+
 const ADMIN_NAV = {
   overview: [
     { to: "/app/admin/overview", label: "National Overview", icon: LayoutDashboard },
@@ -292,6 +369,8 @@ export function Sidebar() {
   const isStateNodal = user.roleId === "state_nodal";
   const isCollector = user.roleId === "collector_cala";
   const isTehsil = user.roleId === "tehsil_sdo";
+  const isFieldOfficer = user.roleId === "field_officer";
+  const isSiaExpert = user.roleId === "sia_expert";
 
   return (
     <aside className="hidden w-[260px] shrink-0 flex-col border-r bg-white lg:flex">
@@ -481,6 +560,62 @@ export function Sidebar() {
               </div>
             ))}
           </>
+        ) : isFieldOfficer ? (
+          <>
+            {Object.entries(FIELD_OFFICER_NAV).map(([section, items]) => (
+              <div key={section}>
+                <p className="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground capitalize">
+                  {section}
+                </p>
+                <ul className="space-y-0.5">
+                  {items.map((item) => (
+                    <li key={item.to + item.label}>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors",
+                            isActive ? "bg-[#0F2340] text-white" : "text-slate-700 hover:bg-slate-100",
+                          )
+                        }
+                      >
+                        <item.icon className="h-4 w-4 shrink-0" />
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </>
+        ) : isSiaExpert ? (
+          <>
+            {Object.entries(SIA_NAV).map(([section, items]) => (
+              <div key={section}>
+                <p className="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground capitalize">
+                  {section}
+                </p>
+                <ul className="space-y-0.5">
+                  {items.map((item) => (
+                    <li key={item.to + item.label}>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors",
+                            isActive ? "bg-[#0F2340] text-white" : "text-slate-700 hover:bg-slate-100",
+                          )
+                        }
+                      >
+                        <item.icon className="h-4 w-4 shrink-0" />
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </>
         ) : (
           <>
             {/* Standard navigation for other roles */}
@@ -547,7 +682,11 @@ export function Sidebar() {
                         ? "2 projects overdue · 7 objections pending. Review Command Centre → respond to objections."
                         : isTehsil
                           ? "2 projects overdue · 4 ownership issues. Review Work Queue → verify field evidence."
-                          : "2 cases overdue · 3 due this week. Review Cases → filter by SLA."}
+                            : isFieldOfficer
+                              ? "1 overdue task · 5 pending. Open Tasks → complete field visits."
+                              : isSiaExpert
+                                ? "1 SIA due in 3 days · 2 consultations pending. Review Work Queue → complete assessments."
+                                : "2 cases overdue · 3 due this week. Review Cases → filter by SLA."}
           </p>
           <Badge variant="warning" className="mt-2 text-[11px]">
             Action needed

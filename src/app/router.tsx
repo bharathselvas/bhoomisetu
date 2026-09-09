@@ -140,6 +140,60 @@ import TehsilDocumentsPage from "@/features/tehsil-sdo/TehsilDocumentsPage";
 import TehsilAuditPage from "@/features/tehsil-sdo/TehsilAuditPage";
 import TehsilReportsPage from "@/features/tehsil-sdo/TehsilReportsPage";
 import TehsilNotificationsPage from "@/features/tehsil-sdo/TehsilNotificationsPage";
+import FoHomePage from "@/features/field-officer/FoHomePage";
+import FoTasksPage from "@/features/field-officer/FoTasksPage";
+import FoTaskDetailPage from "@/features/field-officer/FoTaskDetailPage";
+import FoFieldVisitPage from "@/features/field-officer/FoFieldVisitPage";
+import FoGpsCapturePage from "@/features/field-officer/FoGpsCapturePage";
+import FoPhotoCapturePage from "@/features/field-officer/FoPhotoCapturePage";
+import FoPhotoGalleryPage from "@/features/field-officer/FoPhotoGalleryPage";
+import FoDocumentsPage from "@/features/field-officer/FoDocumentsPage";
+import FoOwnerVerifyPage from "@/features/field-officer/FoOwnerVerifyPage";
+import FoAssetsPage from "@/features/field-officer/FoAssetsPage";
+import FoMeasurementPage from "@/features/field-officer/FoMeasurementPage";
+import FoObservationsPage from "@/features/field-officer/FoObservationsPage";
+import FoInteractionPage from "@/features/field-officer/FoInteractionPage";
+import FoObjectionEvidencePage from "@/features/field-officer/FoObjectionEvidencePage";
+import FoPossessionPage from "@/features/field-officer/FoPossessionPage";
+import FoRnrPage from "@/features/field-officer/FoRnrPage";
+import FoSubmitPage from "@/features/field-officer/FoSubmitPage";
+import FoReportPage from "@/features/field-officer/FoReportPage";
+import FoReverificationPage from "@/features/field-officer/FoReverificationPage";
+import FoMapPage from "@/features/field-officer/FoMapPage";
+import FoCompletedPage from "@/features/field-officer/FoCompletedPage";
+import FoPerformancePage from "@/features/field-officer/FoPerformancePage";
+import FoNotificationsPage from "@/features/field-officer/FoNotificationsPage";
+import FoSyncPage from "@/features/field-officer/FoSyncPage";
+import FoAuditPage from "@/features/field-officer/FoAuditPage";
+import FoRoleBoundaryPage from "@/features/field-officer/FoRoleBoundaryPage";
+import FoOfflinePage from "@/features/field-officer/FoOfflinePage";
+// SIA Expert Group
+import SiaDashboardPage from "@/features/sia-expert/SiaDashboardPage";
+import SiaAssessmentsPage from "@/features/sia-expert/SiaAssessmentsPage";
+import SiaWorkQueuePage from "@/features/sia-expert/SiaWorkQueuePage";
+import SiaWorkspacePage from "@/features/sia-expert/SiaWorkspacePage";
+import SiaProjectContextPage from "@/features/sia-expert/SiaProjectContextPage";
+import SiaFamiliesPage from "@/features/sia-expert/SiaFamiliesPage";
+import SiaLivelihoodPage from "@/features/sia-expert/SiaLivelihoodPage";
+import SiaPublicAssetsPage from "@/features/sia-expert/SiaPublicAssetsPage";
+import SiaVulnerablePage from "@/features/sia-expert/SiaVulnerablePage";
+import SiaGramSabhaPage from "@/features/sia-expert/SiaGramSabhaPage";
+import SiaGramSabhaDetailPage from "@/features/sia-expert/SiaGramSabhaDetailPage";
+import SiaPublicConsultationPage from "@/features/sia-expert/SiaPublicConsultationPage";
+import SiaStakeholderPage from "@/features/sia-expert/SiaStakeholderPage";
+import SiaEvidencePage from "@/features/sia-expert/SiaEvidencePage";
+import SiaGisMapPage from "@/features/sia-expert/SiaGisMapPage";
+import SiaFindingsPage from "@/features/sia-expert/SiaFindingsPage";
+import SiaMitigationPage from "@/features/sia-expert/SiaMitigationPage";
+import SiaCompletenessPage from "@/features/sia-expert/SiaCompletenessPage";
+import SiaDraftReportPage from "@/features/sia-expert/SiaDraftReportPage";
+import SiaSubmissionPage from "@/features/sia-expert/SiaSubmissionPage";
+import SiaClarificationsPage from "@/features/sia-expert/SiaClarificationsPage";
+import SiaVersionHistoryPage from "@/features/sia-expert/SiaVersionHistoryPage";
+import SiaAuditTrailPage from "@/features/sia-expert/SiaAuditTrailPage";
+import SiaStatutoryGatePage from "@/features/sia-expert/SiaStatutoryGatePage";
+import SiaNotificationsPage from "@/features/sia-expert/SiaNotificationsPage";
+import SiaRoleBoundaryPage from "@/features/sia-expert/SiaRoleBoundaryPage";
 
 /**
  * App router — single national platform.
@@ -301,6 +355,62 @@ export const router = createBrowserRouter([
       { path: "tehsil/audit", element: <TehsilAuditPage /> },
       { path: "tehsil/reports", element: <TehsilReportsPage /> },
       { path: "tehsil/notifications", element: <TehsilNotificationsPage /> },
+      // Field Officer / VAO routes
+      { path: "fo/home", element: <FoHomePage /> },
+      { path: "fo/tasks", element: <FoTasksPage /> },
+      { path: "fo/task/:taskId", element: <FoTaskDetailPage /> },
+      { path: "fo/visit/:taskId", element: <FoFieldVisitPage /> },
+      { path: "fo/gps/:taskId", element: <FoGpsCapturePage /> },
+      { path: "fo/photo/:taskId", element: <FoPhotoCapturePage /> },
+      { path: "fo/gallery/:taskId", element: <FoPhotoGalleryPage /> },
+      { path: "fo/documents/:taskId", element: <FoDocumentsPage /> },
+      { path: "fo/owner-verify/:taskId", element: <FoOwnerVerifyPage /> },
+      { path: "fo/assets/:taskId", element: <FoAssetsPage /> },
+      { path: "fo/measurement/:taskId", element: <FoMeasurementPage /> },
+      { path: "fo/observations/:taskId", element: <FoObservationsPage /> },
+      { path: "fo/interaction/:taskId", element: <FoInteractionPage /> },
+      { path: "fo/objection-evidence/:taskId", element: <FoObjectionEvidencePage /> },
+      { path: "fo/possession/:taskId", element: <FoPossessionPage /> },
+      { path: "fo/rnr/:taskId", element: <FoRnrPage /> },
+      { path: "fo/submit/:taskId", element: <FoSubmitPage /> },
+      { path: "fo/report/:taskId", element: <FoReportPage /> },
+      { path: "fo/reverification/:taskId", element: <FoReverificationPage /> },
+      { path: "fo/map", element: <FoMapPage /> },
+      { path: "fo/completed", element: <FoCompletedPage /> },
+      { path: "fo/performance", element: <FoPerformancePage /> },
+      { path: "fo/notifications", element: <FoNotificationsPage /> },
+      { path: "fo/sync", element: <FoSyncPage /> },
+      { path: "fo/audit", element: <FoAuditPage /> },
+      { path: "fo/role", element: <FoRoleBoundaryPage /> },
+      { path: "fo/offline", element: <FoOfflinePage /> },
+      // SIA Expert Group routes
+      { path: "sia/dashboard", element: <SiaDashboardPage /> },
+      { path: "sia/assessments", element: <SiaAssessmentsPage /> },
+      { path: "sia/work-queue", element: <SiaWorkQueuePage /> },
+      { path: "sia/workspace/:assessmentId", element: <SiaWorkspacePage /> },
+      { path: "sia/workspace/:assessmentId/project-context", element: <SiaProjectContextPage /> },
+      { path: "sia/workspace/:assessmentId/project_context", element: <SiaProjectContextPage /> },
+      { path: "sia/families", element: <SiaFamiliesPage /> },
+      { path: "sia/livelihood", element: <SiaLivelihoodPage /> },
+      { path: "sia/public-assets", element: <SiaPublicAssetsPage /> },
+      { path: "sia/vulnerable", element: <SiaVulnerablePage /> },
+      { path: "sia/gram-sabha", element: <SiaGramSabhaPage /> },
+      { path: "sia/gram-sabha/:consultationId", element: <SiaGramSabhaDetailPage /> },
+      { path: "sia/public-consultation", element: <SiaPublicConsultationPage /> },
+      { path: "sia/stakeholder", element: <SiaStakeholderPage /> },
+      { path: "sia/evidence", element: <SiaEvidencePage /> },
+      { path: "sia/gis-map", element: <SiaGisMapPage /> },
+      { path: "sia/findings", element: <SiaFindingsPage /> },
+      { path: "sia/mitigation", element: <SiaMitigationPage /> },
+      { path: "sia/completeness", element: <SiaCompletenessPage /> },
+      { path: "sia/draft-report", element: <SiaDraftReportPage /> },
+      { path: "sia/submission", element: <SiaSubmissionPage /> },
+      { path: "sia/clarifications", element: <SiaClarificationsPage /> },
+      { path: "sia/version-history", element: <SiaVersionHistoryPage /> },
+      { path: "sia/audit", element: <SiaAuditTrailPage /> },
+      { path: "sia/statutory-gate", element: <SiaStatutoryGatePage /> },
+      { path: "sia/notifications", element: <SiaNotificationsPage /> },
+      { path: "sia/role", element: <SiaRoleBoundaryPage /> },
     ],
   },
   { path: "*", element: <Navigate to="/" replace /> },
