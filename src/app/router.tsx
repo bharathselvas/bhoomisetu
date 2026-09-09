@@ -25,6 +25,24 @@ import { IntegrationsPage } from "@/features/admin/IntegrationsPage";
 import { AlertsPage } from "@/features/admin/AlertsPage";
 import { ReportsPage } from "@/features/admin/ReportsPage";
 import { ProjectDetailPage } from "@/features/admin/ProjectDetailPage";
+import { MinistryOverviewPage } from "@/features/ministry/MinistryOverviewPage";
+import { MinistryProjectsPage } from "@/features/ministry/MinistryProjectsPage";
+import { MinistryWorkQueuePage } from "@/features/ministry/MinistryWorkQueuePage";
+import { MinistryStateMonitoringPage } from "@/features/ministry/MinistryStateMonitoringPage";
+import { MinistryGisPage } from "@/features/ministry/MinistryGisPage";
+import { MinistryRiskDelayPage } from "@/features/ministry/MinistryRiskDelayPage";
+import { MinistryOrgsPage } from "@/features/ministry/MinistryOrgsPage";
+import { MinistryStakeholdersPage } from "@/features/ministry/MinistryStakeholdersPage";
+import { MinistryRequestsPage } from "@/features/ministry/MinistryRequestsPage";
+import { MinistryDocumentsPage } from "@/features/ministry/MinistryDocumentsPage";
+import { MinistryObjectionsPage } from "@/features/ministry/MinistryObjectionsPage";
+import { MinistryCompensationPage } from "@/features/ministry/MinistryCompensationPage";
+import { MinistryPossessionPage } from "@/features/ministry/MinistryPossessionPage";
+import { MinistryRnrPage } from "@/features/ministry/MinistryRnrPage";
+import { MinistryAuditPage } from "@/features/ministry/MinistryAuditPage";
+import { MinistryMisPage } from "@/features/ministry/MinistryMisPage";
+import { MinistryNotificationsPage } from "@/features/ministry/MinistryNotificationsPage";
+import { MinistryProfilePage } from "@/features/ministry/MinistryProfilePage";
 
 /**
  * App router — single national platform.
@@ -65,6 +83,26 @@ export const router = createBrowserRouter([
       { path: "admin/alerts", element: <AlertsPage /> },
       { path: "admin/reports", element: <ReportsPage /> },
       { path: "admin/projects/:projectId", element: <ProjectDetailPage /> },
+      // Ministry Nodal Officer routes
+      { path: "ministry/overview", element: <MinistryOverviewPage /> },
+      { path: "ministry/projects", element: <MinistryProjectsPage /> },
+      { path: "ministry/project/:projectId", element: <ProjectDetailPage /> },
+      { path: "ministry/work-queue", element: <MinistryWorkQueuePage /> },
+      { path: "ministry/state-monitoring", element: <MinistryStateMonitoringPage /> },
+      { path: "ministry/gis", element: <MinistryGisPage /> },
+      { path: "ministry/risk", element: <MinistryRiskDelayPage /> },
+      { path: "ministry/compensation", element: <MinistryCompensationPage /> },
+      { path: "ministry/possession", element: <MinistryPossessionPage /> },
+      { path: "ministry/rnr", element: <MinistryRnrPage /> },
+      { path: "ministry/organizations", element: <MinistryOrgsPage /> },
+      { path: "ministry/stakeholders", element: <MinistryStakeholdersPage /> },
+      { path: "ministry/requests", element: <MinistryRequestsPage /> },
+      { path: "ministry/documents", element: <MinistryDocumentsPage /> },
+      { path: "ministry/objections", element: <MinistryObjectionsPage /> },
+      { path: "ministry/audit", element: <MinistryAuditPage /> },
+      { path: "ministry/reports", element: <MinistryMisPage /> },
+      { path: "ministry/notifications", element: <MinistryNotificationsPage /> },
+      { path: "ministry/profile", element: <MinistryProfilePage /> },
     ],
   },
   { path: "*", element: <Navigate to="/" replace /> },

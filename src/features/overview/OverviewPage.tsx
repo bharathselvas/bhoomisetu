@@ -39,6 +39,11 @@ export function OverviewPage() {
     return <Navigate to="/app/admin/overview" replace />;
   }
 
+  // Ministry Nodal Officer gets a dedicated overview page
+  if (user.roleId === "ministry_nodal") {
+    return <Navigate to="/app/ministry/overview" replace />;
+  }
+
   const role = ROLE_BY_ID[user.roleId];
 
   const activeCases = cases.filter((c) => c.status === "active");
@@ -81,7 +86,6 @@ export function OverviewPage() {
       {user.roleId === "sia_expert" && <SiaKPIs />}
       {user.roleId === "rnr_officer" && <RnrKPIs />}
       {user.roleId === "tehsil_sdo" && <TehsilKpi cases={cases} overdue={overdue} />}
-      {user.roleId === "ministry_nodal" && <MinistryKPIs cases={cases} overdue={overdue} />}
       {user.roleId === "requiring_org" && <RequiringOrgKPIs />}
       {user.roleId === "state_nodal" && <StateNodalKPIs cases={cases} overdue={overdue} />}
 
