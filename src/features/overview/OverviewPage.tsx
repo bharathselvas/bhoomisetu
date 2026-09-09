@@ -54,6 +54,16 @@ export function OverviewPage() {
     return <Navigate to="/app/state-nodal/overview" replace />;
   }
 
+  // District Collector / CALA gets a dedicated overview page
+  if (user.roleId === "collector_cala") {
+    return <Navigate to="/app/collector/overview" replace />;
+  }
+
+  // Tehsil / SDO gets a dedicated overview page
+  if (user.roleId === "tehsil_sdo") {
+    return <Navigate to="/app/tehsil/overview" replace />;
+  }
+
   const role = ROLE_BY_ID[user.roleId];
 
   const activeCases = cases.filter((c) => c.status === "active");
@@ -89,13 +99,13 @@ export function OverviewPage() {
       </div>
 
       {/* Role-specific KPI cards — national_admin is redirected to /app/admin/overview above */}
-      {user.roleId === "collector_cala" && <CollectorKPIs cases={cases} myCases={myCases} overdue={overdue} pendingScrutiny={pendingScrutiny} />}
+      {((user.roleId as string) === "collector_cala") && <CollectorKPIs cases={cases} myCases={myCases} overdue={overdue} pendingScrutiny={pendingScrutiny} />}
       {user.roleId === "field_officer" && <FieldOfficerKPIs fieldTasks={fieldTasks} />}
       {user.roleId === "finance_officer" && <FinanceKPIs paymentQueue={paymentQueue} paymentsDue={paymentsDue} />}
       {user.roleId === "citizen" && <CitizenKPIs />}
       {user.roleId === "sia_expert" && <SiaKPIs />}
       {user.roleId === "rnr_officer" && <RnrKPIs />}
-      {user.roleId === "tehsil_sdo" && <TehsilKpi cases={cases} overdue={overdue} />}
+      {((user.roleId as string) === "tehsil_sdo") && <TehsilKpi cases={cases} overdue={overdue} />}
       {((user.roleId as string) === "requiring_org") && <RequiringOrgKPIs />}
       {((user.roleId as string) === "state_nodal") && <StateNodalKPIs cases={cases} overdue={overdue} />}
 

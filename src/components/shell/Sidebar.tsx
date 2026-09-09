@@ -142,6 +142,86 @@ const STATE_NODAL_NAV = {
   ],
 };
 
+const COLLECTOR_NAV = {
+  overview: [
+    { to: "/app/collector/overview", label: "District Overview", icon: LayoutDashboard },
+    { to: "/app/collector/command-centre", label: "Command Centre", icon: LayoutDashboard },
+    { to: "/app/collector/work-queue", label: "Work Queue", icon: ClipboardCheck },
+  ],
+  acquisition: [
+    { to: "/app/collector/incoming", label: "Incoming Projects", icon: Shield },
+    { to: "/app/collector/pipeline", label: "Project Pipeline", icon: BarChart3 },
+    { to: "/app/collector/workspace", label: "Project Workspace", icon: Files },
+    { to: "/app/collector/timeline", label: "Statutory Timeline", icon: Activity },
+    { to: "/app/collector/sia", label: "SIA Monitoring", icon: Users },
+    { to: "/app/collector/notifications-mgmt", label: "Notification Management", icon: Bell },
+    { to: "/app/collector/objections", label: "Objections & Hearings", icon: MessageSquareWarning },
+    { to: "/app/collector/declarations", label: "Declarations", icon: FileText },
+  ],
+  field: [
+    { to: "/app/collector/field-verification", label: "Field Verification", icon: ClipboardCheck },
+    { to: "/app/collector/compensation", label: "Compensation", icon: IndianRupee },
+    { to: "/app/collector/awards", label: "Awards", icon: FileText },
+    { to: "/app/collector/payments", label: "Payments", icon: IndianRupee },
+    { to: "/app/collector/possession", label: "Possession", icon: MapIcon },
+    { to: "/app/collector/rnr", label: "R&R", icon: Users },
+    { to: "/app/collector/grievances", label: "Grievances", icon: MessageSquareWarning },
+  ],
+  records: [
+    { to: "/app/collector/gis", label: "District GIS", icon: MapIcon },
+    { to: "/app/collector/assets", label: "Asset Valuation", icon: IndianRupee },
+    { to: "/app/collector/parcels", label: "Parcel Register", icon: Files },
+    { to: "/app/collector/documents", label: "Documents", icon: FileText },
+    { to: "/app/collector/audit", label: "Audit Trail", icon: ScrollText },
+    { to: "/app/collector/stakeholders", label: "District Stakeholders", icon: Users },
+    { to: "/app/collector/tehsils", label: "Tehsil / SDO", icon: Building2 },
+  ],
+  reports: [
+    { to: "/app/collector/reports", label: "Reports & MIS", icon: LineChart },
+    { to: "/app/collector/notifications", label: "Notifications", icon: Bell },
+    { to: "/app/collector/risk", label: "Risk & Delays", icon: AlertTriangle },
+  ],
+};
+
+const TEHSIL_NAV = {
+  overview: [
+    { to: "/app/tehsil/overview", label: "Tehsil Overview", icon: LayoutDashboard },
+    { to: "/app/tehsil/critical", label: "Critical Cases", icon: AlertTriangle },
+    { to: "/app/tehsil/work-queue", label: "Work Queue", icon: ClipboardCheck },
+  ],
+  operations: [
+    { to: "/app/tehsil/projects", label: "Assigned Projects", icon: Files },
+    { to: "/app/tehsil/village-register", label: "Village Register", icon: Building2 },
+    { to: "/app/tehsil/parcel-register", label: "Parcel Register", icon: Files },
+    { to: "/app/tehsil/land-records", label: "Land Records", icon: FileText },
+    { to: "/app/tehsil/discrepancy", label: "Ownership Discrepancy", icon: AlertTriangle },
+  ],
+  field: [
+    { to: "/app/tehsil/field-officers", label: "Field Officers", icon: Users },
+    { to: "/app/tehsil/field-verification", label: "Field Verification", icon: ClipboardCheck },
+    { to: "/app/tehsil/gps-photo", label: "GPS / Photo Evidence", icon: MapIcon },
+    { to: "/app/tehsil/village-coordination", label: "Village Coordination", icon: Workflow },
+  ],
+  support: [
+    { to: "/app/tehsil/objection-support", label: "Objection Support", icon: MessageSquareWarning },
+    { to: "/app/tehsil/compensation-support", label: "Compensation Support", icon: IndianRupee },
+    { to: "/app/tehsil/possession", label: "Possession Readiness", icon: MapIcon },
+    { to: "/app/tehsil/rnr", label: "R&R Field Data", icon: Users },
+    { to: "/app/tehsil/district-requests", label: "District Requests", icon: ScrollText },
+  ],
+  monitoring: [
+    { to: "/app/tehsil/gis", label: "Tehsil GIS", icon: MapIcon },
+    { to: "/app/tehsil/timeline", label: "Timeline", icon: Activity },
+    { to: "/app/tehsil/risk", label: "Risks & Delays", icon: AlertTriangle },
+  ],
+  records: [
+    { to: "/app/tehsil/documents", label: "Documents", icon: FileText },
+    { to: "/app/tehsil/audit", label: "Audit Trail", icon: ScrollText },
+    { to: "/app/tehsil/reports", label: "Reports & MIS", icon: LineChart },
+    { to: "/app/tehsil/notifications", label: "Notifications", icon: Bell },
+  ],
+};
+
 const ADMIN_NAV = {
   overview: [
     { to: "/app/admin/overview", label: "National Overview", icon: LayoutDashboard },
@@ -190,7 +270,7 @@ function roleShortcuts(roleId: string): Shortcut[] {
     case "tehsil_sdo":
       return [{ to: "/app/cases", label: "Hearings & Scrutiny", icon: ScrollText }];
     case "collector_cala":
-      return [{ to: "/app/cases", label: "Awaiting Decision", icon: Files }];
+      return [{ to: "/app/collector/command-centre", label: "Command Centre", icon: ClipboardCheck }];
     case "requiring_org":
       return [{ to: "/app/cases", label: "My Projects", icon: Files }];
     default:
@@ -210,6 +290,8 @@ export function Sidebar() {
   const isMinistry = user.roleId === "ministry_nodal";
   const isRO = user.roleId === "requiring_org";
   const isStateNodal = user.roleId === "state_nodal";
+  const isCollector = user.roleId === "collector_cala";
+  const isTehsil = user.roleId === "tehsil_sdo";
 
   return (
     <aside className="hidden w-[260px] shrink-0 flex-col border-r bg-white lg:flex">
@@ -342,6 +424,63 @@ export function Sidebar() {
               </div>
             ))}
           </>
+        ) : isCollector ? (
+          <>
+            {/* District Collector / CALA navigation — grouped sections */}
+            {Object.entries(COLLECTOR_NAV).map(([section, items]) => (
+              <div key={section}>
+                <p className="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground capitalize">
+                  {section}
+                </p>
+                <ul className="space-y-0.5">
+                  {items.map((item) => (
+                    <li key={item.to + item.label}>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors",
+                            isActive ? "bg-[#0F2340] text-white" : "text-slate-700 hover:bg-slate-100",
+                          )
+                        }
+                      >
+                        <item.icon className="h-4 w-4 shrink-0" />
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </>
+        ) : isTehsil ? (
+          <>
+            {Object.entries(TEHSIL_NAV).map(([section, items]) => (
+              <div key={section}>
+                <p className="px-2 pb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground capitalize">
+                  {section}
+                </p>
+                <ul className="space-y-0.5">
+                  {items.map((item) => (
+                    <li key={item.to + item.label}>
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center gap-2.5 rounded-md px-2.5 py-2 text-sm transition-colors",
+                            isActive ? "bg-[#0F2340] text-white" : "text-slate-700 hover:bg-slate-100",
+                          )
+                        }
+                      >
+                        <item.icon className="h-4 w-4 shrink-0" />
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </>
         ) : (
           <>
             {/* Standard navigation for other roles */}
@@ -404,7 +543,11 @@ export function Sidebar() {
                   ? "3 projects at risk · 7 work items. Review Work Queue → respond to requests."
                   : isStateNodal
                     ? "5 projects delayed · 3 critical. Review Risk & Delay → route incoming projects."
-                    : "2 cases overdue · 3 due this week. Review Cases → filter by SLA."}
+                      : isCollector
+                        ? "2 projects overdue · 7 objections pending. Review Command Centre → respond to objections."
+                        : isTehsil
+                          ? "2 projects overdue · 4 ownership issues. Review Work Queue → verify field evidence."
+                          : "2 cases overdue · 3 due this week. Review Cases → filter by SLA."}
           </p>
           <Badge variant="warning" className="mt-2 text-[11px]">
             Action needed

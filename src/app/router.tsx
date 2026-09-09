@@ -85,6 +85,61 @@ import { StateMisPage } from "@/features/state-nodal/StateMisPage";
 import { StateNotificationsPage } from "@/features/state-nodal/StateNotificationsPage";
 import { StateWorkQueuePage } from "@/features/state-nodal/StateWorkQueuePage";
 import { StateProjectWorkspacePage } from "@/features/state-nodal/StateProjectWorkspacePage";
+import CollectorOverviewPage from "@/features/collector-cala/CollectorOverviewPage";
+import CommandCentrePage from "@/features/collector-cala/CommandCentrePage";
+import CollectorWorkQueuePage from "@/features/collector-cala/CollectorWorkQueuePage";
+import CollectorIncomingProjectsPage from "@/features/collector-cala/CollectorIncomingProjectsPage";
+import CollectorProjectPipelinePage from "@/features/collector-cala/CollectorProjectPipelinePage";
+import CollectorProjectWorkspacePage from "@/features/collector-cala/CollectorProjectWorkspacePage";
+import CollectorStatutoryTimelinePage from "@/features/collector-cala/CollectorStatutoryTimelinePage";
+import CollectorSiaMonitoringPage from "@/features/collector-cala/CollectorSiaMonitoringPage";
+import CollectorNotificationManagementPage from "@/features/collector-cala/CollectorNotificationManagementPage";
+import CollectorObjectionHearingPage from "@/features/collector-cala/CollectorObjectionHearingPage";
+import CollectorDeclarationManagementPage from "@/features/collector-cala/CollectorDeclarationManagementPage";
+import CollectorFieldVerificationPage from "@/features/collector-cala/CollectorFieldVerificationPage";
+import CollectorCompensationPage from "@/features/collector-cala/CollectorCompensationPage";
+import CollectorAwardPage from "@/features/collector-cala/CollectorAwardPage";
+import CollectorPaymentPage from "@/features/collector-cala/CollectorPaymentPage";
+import CollectorPossessionPage from "@/features/collector-cala/CollectorPossessionPage";
+import CollectorRnrPage from "@/features/collector-cala/CollectorRnrPage";
+import CollectorGrievancePage from "@/features/collector-cala/CollectorGrievancePage";
+import CollectorRiskDelayPage from "@/features/collector-cala/CollectorRiskDelayPage";
+import CollectorAssetValuationPage from "@/features/collector-cala/CollectorAssetValuationPage";
+import CollectorGisPage from "@/features/collector-cala/CollectorGisPage";
+import CollectorTehsilSdoPage from "@/features/collector-cala/CollectorTehsilSdoPage";
+import CollectorStakeholdersPage from "@/features/collector-cala/CollectorStakeholdersPage";
+import CollectorAuditPage from "@/features/collector-cala/CollectorAuditPage";
+import CollectorDocumentsPage from "@/features/collector-cala/CollectorDocumentsPage";
+import CollectorReportsPage from "@/features/collector-cala/CollectorReportsPage";
+import CollectorNotificationsPage from "@/features/collector-cala/CollectorNotificationsPage";
+import CollectorParcelRegisterPage from "@/features/collector-cala/CollectorParcelRegisterPage";
+import TehsilOverviewPage from "@/features/tehsil-sdo/TehsilOverviewPage";
+import TehsilWorkQueuePage from "@/features/tehsil-sdo/TehsilWorkQueuePage";
+import TehsilCriticalCasesPage from "@/features/tehsil-sdo/TehsilCriticalCasesPage";
+import TehsilAssignedProjectsPage from "@/features/tehsil-sdo/TehsilAssignedProjectsPage";
+import TehsilVillageRegisterPage from "@/features/tehsil-sdo/TehsilVillageRegisterPage";
+import TehsilVillageWorkspacePage from "@/features/tehsil-sdo/TehsilVillageWorkspacePage";
+import TehsilParcelRegisterPage from "@/features/tehsil-sdo/TehsilParcelRegisterPage";
+import TehsilParcelWorkspacePage from "@/features/tehsil-sdo/TehsilParcelWorkspacePage";
+import TehsilLandRecordPage from "@/features/tehsil-sdo/TehsilLandRecordPage";
+import TehsilOwnershipDiscrepancyPage from "@/features/tehsil-sdo/TehsilOwnershipDiscrepancyPage";
+import TehsilFieldOfficerPage from "@/features/tehsil-sdo/TehsilFieldOfficerPage";
+import TehsilFieldVerificationPage from "@/features/tehsil-sdo/TehsilFieldVerificationPage";
+import TehsilGpsPhotoPage from "@/features/tehsil-sdo/TehsilGpsPhotoPage";
+import TehsilFieldDiscrepancyPage from "@/features/tehsil-sdo/TehsilFieldDiscrepancyPage";
+import TehsilObjectionSupportPage from "@/features/tehsil-sdo/TehsilObjectionSupportPage";
+import TehsilCompensationSupportPage from "@/features/tehsil-sdo/TehsilCompensationSupportPage";
+import TehsilPossessionPage from "@/features/tehsil-sdo/TehsilPossessionPage";
+import TehsilRnrFieldPage from "@/features/tehsil-sdo/TehsilRnrFieldPage";
+import TehsilDistrictRequestsPage from "@/features/tehsil-sdo/TehsilDistrictRequestsPage";
+import TehsilVillageCoordinationPage from "@/features/tehsil-sdo/TehsilVillageCoordinationPage";
+import TehsilGisPage from "@/features/tehsil-sdo/TehsilGisPage";
+import TehsilTimelinePage from "@/features/tehsil-sdo/TehsilTimelinePage";
+import TehsilRisksDelaysPage from "@/features/tehsil-sdo/TehsilRisksDelaysPage";
+import TehsilDocumentsPage from "@/features/tehsil-sdo/TehsilDocumentsPage";
+import TehsilAuditPage from "@/features/tehsil-sdo/TehsilAuditPage";
+import TehsilReportsPage from "@/features/tehsil-sdo/TehsilReportsPage";
+import TehsilNotificationsPage from "@/features/tehsil-sdo/TehsilNotificationsPage";
 
 /**
  * App router — single national platform.
@@ -189,6 +244,63 @@ export const router = createBrowserRouter([
       { path: "state-nodal/mis", element: <StateMisPage /> },
       { path: "state-nodal/notifications", element: <StateNotificationsPage /> },
       { path: "state-nodal/work-queue", element: <StateWorkQueuePage /> },
+      // District Collector / CALA routes
+      { path: "collector/overview", element: <CollectorOverviewPage /> },
+      { path: "collector/command-centre", element: <CommandCentrePage /> },
+      { path: "collector/work-queue", element: <CollectorWorkQueuePage /> },
+      { path: "collector/incoming", element: <CollectorIncomingProjectsPage /> },
+      { path: "collector/pipeline", element: <CollectorProjectPipelinePage /> },
+      { path: "collector/workspace", element: <CollectorProjectWorkspacePage /> },
+      { path: "collector/timeline", element: <CollectorStatutoryTimelinePage /> },
+      { path: "collector/sia", element: <CollectorSiaMonitoringPage /> },
+      { path: "collector/notifications-mgmt", element: <CollectorNotificationManagementPage /> },
+      { path: "collector/objections", element: <CollectorObjectionHearingPage /> },
+      { path: "collector/declarations", element: <CollectorDeclarationManagementPage /> },
+      { path: "collector/field-verification", element: <CollectorFieldVerificationPage /> },
+      { path: "collector/compensation", element: <CollectorCompensationPage /> },
+      { path: "collector/awards", element: <CollectorAwardPage /> },
+      { path: "collector/payments", element: <CollectorPaymentPage /> },
+      { path: "collector/possession", element: <CollectorPossessionPage /> },
+      { path: "collector/rnr", element: <CollectorRnrPage /> },
+      { path: "collector/grievances", element: <CollectorGrievancePage /> },
+      { path: "collector/gis", element: <CollectorGisPage /> },
+      { path: "collector/assets", element: <CollectorAssetValuationPage /> },
+      { path: "collector/parcels", element: <CollectorParcelRegisterPage /> },
+      { path: "collector/documents", element: <CollectorDocumentsPage /> },
+      { path: "collector/audit", element: <CollectorAuditPage /> },
+      { path: "collector/stakeholders", element: <CollectorStakeholdersPage /> },
+      { path: "collector/tehsils", element: <CollectorTehsilSdoPage /> },
+      { path: "collector/reports", element: <CollectorReportsPage /> },
+      { path: "collector/notifications", element: <CollectorNotificationsPage /> },
+      { path: "collector/risk", element: <CollectorRiskDelayPage /> },
+      // Tehsil / SDO routes
+      { path: "tehsil/overview", element: <TehsilOverviewPage /> },
+      { path: "tehsil/work-queue", element: <TehsilWorkQueuePage /> },
+      { path: "tehsil/critical", element: <TehsilCriticalCasesPage /> },
+      { path: "tehsil/projects", element: <TehsilAssignedProjectsPage /> },
+      { path: "tehsil/village-register", element: <TehsilVillageRegisterPage /> },
+      { path: "tehsil/village/:villageId", element: <TehsilVillageWorkspacePage /> },
+      { path: "tehsil/parcel-register", element: <TehsilParcelRegisterPage /> },
+      { path: "tehsil/parcel/:parcelId", element: <TehsilParcelWorkspacePage /> },
+      { path: "tehsil/land-records", element: <TehsilLandRecordPage /> },
+      { path: "tehsil/discrepancy", element: <TehsilOwnershipDiscrepancyPage /> },
+      { path: "tehsil/field-officers", element: <TehsilFieldOfficerPage /> },
+      { path: "tehsil/field-verification", element: <TehsilFieldVerificationPage /> },
+      { path: "tehsil/gps-photo", element: <TehsilGpsPhotoPage /> },
+      { path: "tehsil/field-discrepancy", element: <TehsilFieldDiscrepancyPage /> },
+      { path: "tehsil/objection-support", element: <TehsilObjectionSupportPage /> },
+      { path: "tehsil/compensation-support", element: <TehsilCompensationSupportPage /> },
+      { path: "tehsil/possession", element: <TehsilPossessionPage /> },
+      { path: "tehsil/rnr", element: <TehsilRnrFieldPage /> },
+      { path: "tehsil/district-requests", element: <TehsilDistrictRequestsPage /> },
+      { path: "tehsil/village-coordination", element: <TehsilVillageCoordinationPage /> },
+      { path: "tehsil/gis", element: <TehsilGisPage /> },
+      { path: "tehsil/timeline", element: <TehsilTimelinePage /> },
+      { path: "tehsil/risk", element: <TehsilRisksDelaysPage /> },
+      { path: "tehsil/documents", element: <TehsilDocumentsPage /> },
+      { path: "tehsil/audit", element: <TehsilAuditPage /> },
+      { path: "tehsil/reports", element: <TehsilReportsPage /> },
+      { path: "tehsil/notifications", element: <TehsilNotificationsPage /> },
     ],
   },
   { path: "*", element: <Navigate to="/" replace /> },
