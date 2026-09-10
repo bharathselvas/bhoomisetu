@@ -59,6 +59,12 @@ import { CompensationMonitorPage } from "@/features/requiring-org/CompensationMo
 import { PossessionMonitorPage } from "@/features/requiring-org/PossessionMonitorPage";
 import { RnrMonitorPage } from "@/features/requiring-org/RnrMonitorPage";
 import { ProjectReportsPage } from "@/features/requiring-org/ProjectReportsPage";
+import { ProjectWorkspace as ProjectWorkspaceShell } from "@/features/demo/ProjectWorkspace";
+import ProjectOverviewPage from "@/features/demo/ProjectOverviewPage";
+import ProjectWorkflowPage from "@/features/demo/ProjectWorkflowPage";
+import ProjectStakeholdersPage from "@/features/demo/ProjectStakeholdersPage";
+import ProjectTimelinePage from "@/features/demo/ProjectTimelinePage";
+import { ParcelDetail } from "@/features/demo/ParcelDetail";
 import { StateOverviewPage } from "@/features/state-nodal/StateOverviewPage";
 import { StatePipelinePage } from "@/features/state-nodal/StatePipelinePage";
 import { IncomingProjectsPage } from "@/features/state-nodal/IncomingProjectsPage";
@@ -341,7 +347,16 @@ export const router = createBrowserRouter([
       { path: "ro/dashboard", element: <ProjectDashboardPage /> },
       { path: "ro/projects", element: <MyProjectsPage /> },
       { path: "ro/create", element: <CreateProjectPage /> },
-      { path: "ro/project/:projectId", element: <ProjectWorkspacePage /> },
+      { path: "ro/project/:projectId", element: <ProjectWorkspaceShell />, children: [
+        { index: true, element: <ProjectOverviewPage /> },
+        { path: "map", element: <ProjectGisPage /> },
+        { path: "workflow", element: <ProjectWorkflowPage /> },
+        { path: "cases", element: <CaseListPage /> },
+        { path: "documents", element: <ProjectDocumentsPage /> },
+        { path: "stakeholders", element: <ProjectStakeholdersPage /> },
+        { path: "timeline", element: <ProjectTimelinePage /> },
+        { path: "audit", element: <RoAuditTrailPage /> },
+      ] },
       { path: "ro/work-queue", element: <WorkQueuePage /> },
       { path: "ro/progress", element: <AcquisitionProgressPage /> },
       { path: "ro/gis", element: <ProjectGisPage /> },
