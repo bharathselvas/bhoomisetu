@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { GovtMasthead } from "./GovtMasthead";
 import { Sidebar } from "./Sidebar";
+import { DemoControls } from "@/features/demo/DemoControls";
 
 export function AppShell() {
   return (
@@ -14,6 +15,7 @@ export function AppShell() {
           </div>
         </main>
       </div>
+      <DemoControls />
     </div>
   );
 }

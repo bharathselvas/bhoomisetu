@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { CitizenHeader } from "./CitizenHeader";
+import { DemoControls } from "@/features/demo/DemoControls";
 
 export function CitizenShell() {
   return (
@@ -17,6 +18,7 @@ export function CitizenShell() {
           <p className="text-amber-600 font-medium">All monetary values are MOCK / SANDBOX for demonstration</p>
         </div>
       </footer>
+      <DemoControls />
     </div>
   );
 }

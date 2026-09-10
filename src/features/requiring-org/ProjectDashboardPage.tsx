@@ -16,12 +16,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DASHBOARD_KPIS, RISK_PROJECTS, WORK_QUEUE, ORG_PROFILE } from "@/features/requiring-org/roIAData";
+import { ProjectContextHeader } from "@/features/demo/ProjectContextHeader";
+import { LifecycleStepper } from "@/features/demo/LifecycleStepper";
 
 const KPI_ICONS = [Briefcase, Briefcase, Briefcase, Briefcase, FileText, FileText, FileText, IndianRupee, IndianRupee, TrendingUp, TrendingUp, AlertTriangle];
 
 export function ProjectDashboardPage() {
   return (
     <div className="space-y-6">
+      <ProjectContextHeader />
+      <LifecycleStepper />
+
       {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>

@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FIELD_TASKS, SYNC_ITEMS } from "./fieldOfficerData";
 import { ClipboardCheck, MapPin, ArrowRight, Wifi, WifiOff } from "lucide-react";
+import { ProjectContextHeader } from "@/features/demo/ProjectContextHeader";
+import { LifecycleStepper } from "@/features/demo/LifecycleStepper";
 
 export default function FoHomePage() {
   const assigned = FIELD_TASKS.filter((t) => t.status === "assigned").length;
@@ -14,6 +16,8 @@ export default function FoHomePage() {
 
   return (
     <div className="space-y-6">
+      <ProjectContextHeader />
+      <LifecycleStepper />
       {/* Mobile-style header */}
       <div className="rounded-xl bg-gradient-to-r from-[#0F2340] to-[#1a3560] p-5 text-white">
         <div className="flex items-center justify-between">

@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { RR_CASES, RR_PROJECT, WORK_QUEUE, GRIEVANCES, COMPONENT_PROGRESS, RR_AUDIT_TRAIL, RESETTLEMENT_SITES } from "./rrOfficerData";
 import { LayoutDashboard, Users, AlertTriangle, CheckCircle2, Clock, FileText, ChevronRight, Home, BarChart3, ArrowRight } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { ProjectContextHeader } from "@/features/demo/ProjectContextHeader";
+import { LifecycleStepper } from "@/features/demo/LifecycleStepper";
 
 const priorityColors: Record<string, string> = {
   critical: "bg-red-100 text-red-800",
@@ -55,6 +57,9 @@ export default function RrDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
+      <ProjectContextHeader />
+      <LifecycleStepper />
+
       <div className="mb-6">
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
           <LayoutDashboard className="h-4 w-4" />

@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { FINANCE_PROJECT, PAYMENT_INSTRUCTIONS, PAYMENT_EXCEPTIONS, PAYMENT_AWARDS, FINANCE_AUDIT_TRAIL, PAYMENT_WORK_QUEUE } from "./financeData";
 import { LayoutDashboard, IndianRupee, CheckCircle2, AlertTriangle, ChevronRight, XCircle, Clock } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import { ProjectContextHeader } from "@/features/demo/ProjectContextHeader";
+import { LifecycleStepper } from "@/features/demo/LifecycleStepper";
 
 const priorityColors: Record<string, string> = {
   critical: "bg-red-100 text-red-800",
@@ -38,6 +40,9 @@ export default function FinDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
+      <ProjectContextHeader />
+      <LifecycleStepper />
+
       <div className="mb-6">
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
           <LayoutDashboard className="h-4 w-4" />

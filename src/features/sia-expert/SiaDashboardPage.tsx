@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SIA_ASSESSMENTS, WORK_QUEUE, SIA_AUDIT_TRAIL } from "./siaExpertData";
 import { LayoutDashboard, Clock, AlertTriangle, FileText, Send, ChevronRight, BarChart3 } from "lucide-react";
+import { ProjectContextHeader } from "@/features/demo/ProjectContextHeader";
+import { LifecycleStepper } from "@/features/demo/LifecycleStepper";
 
 const statusColors: Record<string, string> = {
   assigned: "bg-blue-100 text-blue-800",
@@ -46,6 +48,9 @@ export default function SiaDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
+      <ProjectContextHeader />
+      <LifecycleStepper />
+
       <div className="mb-6">
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
           <LayoutDashboard className="h-4 w-4" />

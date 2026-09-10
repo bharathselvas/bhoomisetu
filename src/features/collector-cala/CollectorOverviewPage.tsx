@@ -10,6 +10,8 @@ import {
   STATUTORY_TIMELINES,
   DISTRICT_PROFILE,
 } from "./districtCollectorData";
+import { ProjectContextHeader } from "@/features/demo/ProjectContextHeader";
+import { LifecycleStepper } from "@/features/demo/LifecycleStepper";
 
 const riskColor = (risk: string) => {
   const m: Record<string, string> = {
@@ -32,6 +34,9 @@ export default function CollectorOverviewPage() {
 
   return (
     <div className="space-y-6">
+      <ProjectContextHeader />
+      <LifecycleStepper />
+
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-[#0F2340]">District Collector Dashboard</h1>

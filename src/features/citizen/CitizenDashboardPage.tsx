@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DEMO_CITIZEN, CITIZEN_TIMELINE, STAGE_LABELS } from "./citizenData";
 import { CheckCircle2, Clock, Circle } from "lucide-react";
+import { ProjectContextHeader } from "@/features/demo/ProjectContextHeader";
 
 function getProgressPercentage() {
   const completed = CITIZEN_TIMELINE.filter((s) => s.status === "completed").length;
@@ -16,6 +17,8 @@ export default function CitizenDashboardPage() {
 
   return (
     <div className="space-y-6">
+      <ProjectContextHeader />
+
       <div className="bg-amber-100 border border-amber-300 rounded-md px-4 py-2 text-center text-sm font-medium text-amber-800">
         MOCK / SANDBOX — All data is fictional and for demonstration only
       </div>
