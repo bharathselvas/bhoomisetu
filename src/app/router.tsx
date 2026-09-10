@@ -194,6 +194,89 @@ import SiaAuditTrailPage from "@/features/sia-expert/SiaAuditTrailPage";
 import SiaStatutoryGatePage from "@/features/sia-expert/SiaStatutoryGatePage";
 import SiaNotificationsPage from "@/features/sia-expert/SiaNotificationsPage";
 import SiaRoleBoundaryPage from "@/features/sia-expert/SiaRoleBoundaryPage";
+// R&R Officer
+import RrDashboardPage from "@/features/rr-officer/RrDashboardPage";
+import RrWorkQueuePage from "@/features/rr-officer/RrWorkQueuePage";
+import RrCasesPage from "@/features/rr-officer/RrCasesPage";
+import RrCaseWorkspacePage from "@/features/rr-officer/RrCaseWorkspacePage";
+import RrFamiliesPage from "@/features/rr-officer/RrFamiliesPage";
+import RrVulnerabilityPage from "@/features/rr-officer/RrVulnerabilityPage";
+import RrVerificationPage from "@/features/rr-officer/RrVerificationPage";
+import RrHousingPage from "@/features/rr-officer/RrHousingPage";
+import RrComponentsPage from "@/features/rr-officer/RrComponentsPage";
+import RrSitesPage from "@/features/rr-officer/RrSitesPage";
+import RrSiteReadinessPage from "@/features/rr-officer/RrSiteReadinessPage";
+import RrAllocationPage from "@/features/rr-officer/RrAllocationPage";
+import RrFieldCoordinationPage from "@/features/rr-officer/RrFieldCoordinationPage";
+import RrEvidencePage from "@/features/rr-officer/RrEvidencePage";
+import RrGrievancesPage from "@/features/rr-officer/RrGrievancesPage";
+import RrCompletionPage from "@/features/rr-officer/RrCompletionPage";
+import RrMisPage from "@/features/rr-officer/RrMisPage";
+import RrAuditPage from "@/features/rr-officer/RrAuditPage";
+import RrWorkflowPage from "@/features/rr-officer/RrWorkflowPage";
+import RrNotificationsPage from "@/features/rr-officer/RrNotificationsPage";
+import RrRoleBoundaryPage from "@/features/rr-officer/RrRoleBoundaryPage";
+import RrSubsistencePage from "@/features/rr-officer/RrSubsistencePage";
+import RrTransportationPage from "@/features/rr-officer/RrTransportationPage";
+import RrLivelihoodPage from "@/features/rr-officer/RrLivelihoodPage";
+import RrEmploymentPage from "@/features/rr-officer/RrEmploymentPage";
+import RrSkillDevPage from "@/features/rr-officer/RrSkillDevPage";
+import RrSpecialSupportPage from "@/features/rr-officer/RrSpecialSupportPage";
+import RrProjectOverviewPage from "@/features/rr-officer/RrProjectOverviewPage";
+import RrRequestsPage from "@/features/rr-officer/RrRequestsPage";
+import RrMapPage from "@/features/rr-officer/RrMapPage";
+// Finance Officer
+import FinDashboardPage from "@/features/finance-officer/FinDashboardPage";
+import FinWorkQueuePage from "@/features/finance-officer/FinWorkQueuePage";
+import FinPaymentCasesPage from "@/features/finance-officer/FinPaymentCasesPage";
+import FinPaymentDetailPage from "@/features/finance-officer/FinPaymentDetailPage";
+import FinAwardsPage from "@/features/finance-officer/FinAwardsPage";
+import FinAwardReviewPage from "@/features/finance-officer/FinAwardReviewPage";
+import FinPaymentInitPage from "@/features/finance-officer/FinPaymentInitPage";
+import FinPendingPaymentsPage from "@/features/finance-officer/FinPendingPaymentsPage";
+import FinInitiatedPaymentsPage from "@/features/finance-officer/FinInitiatedPaymentsPage";
+import FinCompletedPaymentsPage from "@/features/finance-officer/FinCompletedPaymentsPage";
+import FinFailedPaymentsPage from "@/features/finance-officer/FinFailedPaymentsPage";
+import FinPendingVerificationPage from "@/features/finance-officer/FinPendingVerificationPage";
+import FinReconciliationPage from "@/features/finance-officer/FinReconciliationPage";
+import FinBeneficiariesPage from "@/features/finance-officer/FinBeneficiariesPage";
+import FinBeneficiaryDetailPage from "@/features/finance-officer/FinBeneficiaryDetailPage";
+import FinExceptionPage from "@/features/finance-officer/FinExceptionPage";
+import FinExceptionDetailPage from "@/features/finance-officer/FinExceptionDetailPage";
+import FinProjectPaymentsPage from "@/features/finance-officer/FinProjectPaymentsPage";
+import FinStatePaymentsPage from "@/features/finance-officer/FinStatePaymentsPage";
+import FinDistrictPaymentsPage from "@/features/finance-officer/FinDistrictPaymentsPage";
+import FinDelaysPage from "@/features/finance-officer/FinDelaysPage";
+import FinDocumentsPage from "@/features/finance-officer/FinDocumentsPage";
+import FinAuditPage from "@/features/finance-officer/FinAuditPage";
+import FinReportsPage from "@/features/finance-officer/FinReportsPage";
+import FinWorkflowPage from "@/features/finance-officer/FinWorkflowPage";
+import FinRoleBoundaryPage from "@/features/finance-officer/FinRoleBoundaryPage";
+// Citizen Portal
+import { CitizenShell } from "@/features/citizen/CitizenShell";
+import CitizenHomePage from "@/features/citizen/CitizenHomePage";
+import CitizenProjectSearchPage from "@/features/citizen/CitizenProjectSearchPage";
+import CitizenProjectPage from "@/features/citizen/CitizenProjectPage";
+import CitizenNoticesPage from "@/features/citizen/CitizenNoticesPage";
+import CitizenNoticeDetailPage from "@/features/citizen/CitizenNoticeDetailPage";
+import CitizenCaseSearchPage from "@/features/citizen/CitizenCaseSearchPage";
+import CitizenTransparencyPage from "@/features/citizen/CitizenTransparencyPage";
+import CitizenHelpPage from "@/features/citizen/CitizenHelpPage";
+import CitizenLoginPage from "@/features/citizen/CitizenLoginPage";
+import CitizenNotificationsPage from "@/features/citizen/CitizenNotificationsPage";
+import CitizenDashboardPage from "@/features/citizen/CitizenDashboardPage";
+import CitizenMyLandPage from "@/features/citizen/CitizenMyLandPage";
+import CitizenParcelMapPage from "@/features/citizen/CitizenParcelMapPage";
+import CitizenTimelinePage from "@/features/citizen/CitizenTimelinePage";
+import CitizenCurrentStatusPage from "@/features/citizen/CitizenCurrentStatusPage";
+import CitizenCompensationPage from "@/features/citizen/CitizenCompensationPage";
+import CitizenPaymentStatusPage from "@/features/citizen/CitizenPaymentStatusPage";
+import CitizenDocumentsPage from "@/features/citizen/CitizenDocumentsPage";
+import CitizenObjectionFlowPage from "@/features/citizen/CitizenObjectionFlowPage";
+import CitizenObjectionTrackingPage from "@/features/citizen/CitizenObjectionTrackingPage";
+import CitizenGrievanceFlowPage from "@/features/citizen/CitizenGrievanceFlowPage";
+import CitizenGrievanceTrackingPage from "@/features/citizen/CitizenGrievanceTrackingPage";
+import CitizenRnRPage from "@/features/citizen/CitizenRnRPage";
 
 /**
  * App router — single national platform.
@@ -411,6 +494,94 @@ export const router = createBrowserRouter([
       { path: "sia/statutory-gate", element: <SiaStatutoryGatePage /> },
       { path: "sia/notifications", element: <SiaNotificationsPage /> },
       { path: "sia/role", element: <SiaRoleBoundaryPage /> },
+      // R&R Officer routes
+      { path: "rr/dashboard", element: <RrDashboardPage /> },
+      { path: "rr/work-queue", element: <RrWorkQueuePage /> },
+      { path: "rr/cases", element: <RrCasesPage /> },
+      { path: "rr/case/:caseId", element: <RrCaseWorkspacePage /> },
+      { path: "rr/families", element: <RrFamiliesPage /> },
+      { path: "rr/vulnerability", element: <RrVulnerabilityPage /> },
+      { path: "rr/verification", element: <RrVerificationPage /> },
+      { path: "rr/housing", element: <RrHousingPage /> },
+      { path: "rr/components", element: <RrComponentsPage /> },
+      { path: "rr/sites", element: <RrSitesPage /> },
+      { path: "rr/site-readiness", element: <RrSiteReadinessPage /> },
+      { path: "rr/allocation", element: <RrAllocationPage /> },
+      { path: "rr/field-coordination", element: <RrFieldCoordinationPage /> },
+      { path: "rr/evidence", element: <RrEvidencePage /> },
+      { path: "rr/grievances", element: <RrGrievancesPage /> },
+      { path: "rr/completion", element: <RrCompletionPage /> },
+      { path: "rr/mis", element: <RrMisPage /> },
+      { path: "rr/audit", element: <RrAuditPage /> },
+      { path: "rr/workflow", element: <RrWorkflowPage /> },
+      { path: "rr/notifications", element: <RrNotificationsPage /> },
+      { path: "rr/role", element: <RrRoleBoundaryPage /> },
+      { path: "rr/subsistence", element: <RrSubsistencePage /> },
+      { path: "rr/transportation", element: <RrTransportationPage /> },
+      { path: "rr/livelihood", element: <RrLivelihoodPage /> },
+      { path: "rr/employment", element: <RrEmploymentPage /> },
+      { path: "rr/skill-dev", element: <RrSkillDevPage /> },
+      { path: "rr/special-support", element: <RrSpecialSupportPage /> },
+      { path: "rr/project-overview", element: <RrProjectOverviewPage /> },
+      { path: "rr/requests", element: <RrRequestsPage /> },
+      { path: "rr/map", element: <RrMapPage /> },
+      // Finance Officer routes
+      { path: "finance/dashboard", element: <FinDashboardPage /> },
+      { path: "finance/work-queue", element: <FinWorkQueuePage /> },
+      { path: "finance/cases", element: <FinPaymentCasesPage /> },
+      { path: "finance/payment/:paymentId", element: <FinPaymentDetailPage /> },
+      { path: "finance/awards", element: <FinAwardsPage /> },
+      { path: "finance/award/:awardId", element: <FinAwardReviewPage /> },
+      { path: "finance/init", element: <FinPaymentInitPage /> },
+      { path: "finance/pending", element: <FinPendingPaymentsPage /> },
+      { path: "finance/initiated", element: <FinInitiatedPaymentsPage /> },
+      { path: "finance/completed", element: <FinCompletedPaymentsPage /> },
+      { path: "finance/failed", element: <FinFailedPaymentsPage /> },
+      { path: "finance/pending-verification", element: <FinPendingVerificationPage /> },
+      { path: "finance/reconciliation", element: <FinReconciliationPage /> },
+      { path: "finance/beneficiaries", element: <FinBeneficiariesPage /> },
+      { path: "finance/beneficiary/:beneficiaryId", element: <FinBeneficiaryDetailPage /> },
+      { path: "finance/exceptions", element: <FinExceptionPage /> },
+      { path: "finance/exception/:exceptionId", element: <FinExceptionDetailPage /> },
+      { path: "finance/project-payments", element: <FinProjectPaymentsPage /> },
+      { path: "finance/state-payments", element: <FinStatePaymentsPage /> },
+      { path: "finance/district-payments", element: <FinDistrictPaymentsPage /> },
+      { path: "finance/delays", element: <FinDelaysPage /> },
+      { path: "finance/documents", element: <FinDocumentsPage /> },
+      { path: "finance/audit", element: <FinAuditPage /> },
+      { path: "finance/reports", element: <FinReportsPage /> },
+      { path: "finance/workflow", element: <FinWorkflowPage /> },
+      { path: "finance/role", element: <FinRoleBoundaryPage /> },
+    ],
+  },
+  // Citizen / Landowner Portal — separate shell
+  {
+    path: "/citizen",
+    element: <CitizenShell />,
+    children: [
+      { index: true, element: <CitizenHomePage /> },
+      { path: "status", element: <CitizenCaseSearchPage /> },
+      { path: "projects", element: <CitizenProjectSearchPage /> },
+      { path: "project/:projectId", element: <CitizenProjectPage /> },
+      { path: "notices", element: <CitizenNoticesPage /> },
+      { path: "notices/:noticeId", element: <CitizenNoticeDetailPage /> },
+      { path: "transparency", element: <CitizenTransparencyPage /> },
+      { path: "help", element: <CitizenHelpPage /> },
+      { path: "login", element: <CitizenLoginPage /> },
+      { path: "notifications", element: <CitizenNotificationsPage /> },
+      { path: "my-case", element: <CitizenDashboardPage /> },
+      { path: "my-case/land", element: <CitizenMyLandPage /> },
+      { path: "my-case/map", element: <CitizenParcelMapPage /> },
+      { path: "my-case/timeline", element: <CitizenTimelinePage /> },
+      { path: "my-case/status", element: <CitizenCurrentStatusPage /> },
+      { path: "my-case/compensation", element: <CitizenCompensationPage /> },
+      { path: "my-case/payment", element: <CitizenPaymentStatusPage /> },
+      { path: "my-case/documents", element: <CitizenDocumentsPage /> },
+      { path: "my-case/rr", element: <CitizenRnRPage /> },
+      { path: "objections", element: <CitizenObjectionTrackingPage /> },
+      { path: "objections/new", element: <CitizenObjectionFlowPage /> },
+      { path: "grievances", element: <CitizenGrievanceTrackingPage /> },
+      { path: "grievances/new", element: <CitizenGrievanceFlowPage /> },
     ],
   },
   { path: "*", element: <Navigate to="/" replace /> },

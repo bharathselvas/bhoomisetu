@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { useSessionStore } from "@/stores/sessionStore";
 import { useCaseStore } from "@/stores/caseStore";
-import { ROLE_BY_ID } from "@/types/rbac";
+import { ROLE_BY_ID, type RoleId } from "@/types/rbac";
 import { MOCK_PARCELS } from "@/mocks/parcels";
 import { MOCK_DOCUMENTS, MOCK_OBJECTIONS, MOCK_PAYMENTS, MOCK_GRIEVANCES, MOCK_NOTIFICATIONS } from "@/mocks/audit";
 import type { AcquisitionCase, Payment } from "@/types/domain";
@@ -74,7 +74,22 @@ export function OverviewPage() {
     return <Navigate to="/app/sia/dashboard" replace />;
   }
 
-  const role = ROLE_BY_ID[user.roleId];
+  // R&R Officer gets a dedicated dashboard
+  if (user.roleId === "rnr_officer") {
+    return <Navigate to="/app/rr/dashboard" replace />;
+  }
+
+  // Finance Officer gets a dedicated dashboard
+  if (user.roleId === "finance_officer") {
+    return <Navigate to="/app/finance/dashboard" replace />;
+  }
+
+  // Citizen / Landowner gets a separate citizen portal
+  if (user.roleId === "citizen") {
+    return <Navigate to="/citizen" replace />;
+  }
+
+  const role = ROLE_BY_ID[user.roleId as RoleId];
 
   const activeCases = cases.filter((c) => c.status === "active");
   const overdue = cases.filter((c) => c.slaStatus === "overdue");
@@ -111,10 +126,10 @@ export function OverviewPage() {
       {/* Role-specific KPI cards — national_admin is redirected to /app/admin/overview above */}
       {((user.roleId as string) === "collector_cala") && <CollectorKPIs cases={cases} myCases={myCases} overdue={overdue} pendingScrutiny={pendingScrutiny} />}
       {((user.roleId as string) === "field_officer") && <FieldOfficerKPIs fieldTasks={fieldTasks} />}
-      {user.roleId === "finance_officer" && <FinanceKPIs paymentQueue={paymentQueue} paymentsDue={paymentsDue} />}
+      {((user.roleId as string) === "finance_officer") && <FinanceKPIs paymentQueue={paymentQueue} paymentsDue={paymentsDue} />}
       {user.roleId === "citizen" && <CitizenKPIs />}
       {((user.roleId as string) === "sia_expert") && <SiaKPIs />}
-      {user.roleId === "rnr_officer" && <RnrKPIs />}
+      {((user.roleId as string) === "rnr_officer") && <RnrKPIs />}
       {((user.roleId as string) === "tehsil_sdo") && <TehsilKpi cases={cases} overdue={overdue} />}
       {((user.roleId as string) === "requiring_org") && <RequiringOrgKPIs />}
       {((user.roleId as string) === "state_nodal") && <StateNodalKPIs cases={cases} overdue={overdue} />}

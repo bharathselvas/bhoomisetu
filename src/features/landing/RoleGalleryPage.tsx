@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import {
   Shield,
   Building2,
@@ -192,6 +192,18 @@ export function RoleGalleryPage() {
               </Card>
             );
           })}
+        </div>
+
+        {/* Citizen Portal Banner */}
+        <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-center">
+          <p className="text-sm font-semibold text-amber-900">Public Citizen Portal</p>
+          <p className="text-xs text-amber-700 mt-1">Landowner? Track your acquisition, file objections, submit grievances.</p>
+          <Link
+            to="/citizen"
+            className="inline-block mt-2 px-4 py-2 bg-[#0F2340] text-white text-sm rounded hover:bg-[#1a365d]"
+          >
+            Enter Citizen Portal
+          </Link>
         </div>
 
         <p className="mt-6 text-center text-[11px] text-muted-foreground">
